@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar-height {
+    height: 100vh;
+    z-index: 1000;
+    width: 3vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border-right: 1px solid #ececec;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+  
+  .sidebar-height:hover {
+    width: 4vw;
+  }
+  
+  .sidebar-items {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .sidebar-items li {
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .sidebar-items li.active {
+    background-color: #ececec;
+    border-radius: 4px;
+  }
+  
+  .sidebar-items li:hover {
+    background-color: #ececec;
+    transform: translateX(2px);
+  }
+  
+  /* Tooltip Styling */
+  .tooltip {
+    position: absolute;
+    top: 50%;
+    left: calc(3vw + 10px);
+    transform: translateY(-50%);
+    background-color: #4f4f4f;
+    color: #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+  }
+  
+  .sidebar-items li:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Second Column Styling */
+  .sidebar-content {
+    width: 15vw; /* Fixed width */
+    padding: 20px;
+    z-index: 100;
+    overflow-y: auto;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1); /* Proper shadow definition */
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  
+  
+  /* Third Column Styling */
+  .third-columns {
+    width: 17vw;
+    height: 100vh;
+    background-color: rgb(243, 243, 243);
+    position: absolute;
+    right: 0;
+ 
+    box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Design Logo */
+  .design-logo {
+    height: 25px;
+    display: block;
+    margin: auto;
+    padding: 3px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .design-logo:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+  
+  /* Sidebar Container */
+  .sidebar-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .sidebar-height {
+      width: 6vw;
+    }
+  
+    .tooltip {
+      left: calc(6vw + 10px);
+    }
+  
+    .sidebar-content {
+      width: calc(100vw - 6vw - 20vw);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar-height {
+      width: 15vw;
+    }
+  
+    .tooltip {
+      left: calc(15vw + 10px);
+    }
+  
+    .sidebar-content {
+      width: calc(100vw - 15vw - 20vw);
+    }
+  }
+  
