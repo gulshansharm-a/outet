@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Navbar Style */
@@ -216,7 +217,7 @@
 
 /* Sidebar Styling */
 .sidebar-height {
-    height: 100vh;
+    height: 91vh;
     border-right: 1px solid #ececec;
     width: 60px;
     display: flex;

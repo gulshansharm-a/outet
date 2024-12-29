@@ -19,5 +19,10 @@ export const reposition_c = (array,id1,id2,position) => ({
       
 });
 
+export const add_at_end = (array) => ({ 
+    type: 'ADD_SECTION', 
+        array
+});
+
 
 

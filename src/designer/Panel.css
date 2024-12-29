@@ -1,15 +1,17 @@
-/* General Reset */
+General Reset
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: none;
   }
   
   /* Sidebar Styling */
   .sidebar-height {
-    height: 100vh;
+    height: 91vh;
     z-index: 1000;
     width: 3vw;
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -83,7 +85,7 @@
   /* Third Column Styling */
   .third-columns {
     width: 17vw;
-    height: 100vh;
+    height: 91vh;
     background-color: rgb(243, 243, 243);
     position: absolute;
     right: 0;
@@ -109,13 +111,15 @@
   /* Sidebar Container */
   .sidebar-container {
     display: flex;
-    height: 100vh;
+    height: 91vh;
+    
   }
   
   /* Media Queries */
   @media (max-width: 1024px) {
     .sidebar-height {
       width: 6vw;
+      height: 90vh;
     }
   
     .tooltip {
@@ -141,3 +145,15 @@
     }
   }
   
+  .small-screen-container {
+    background: #fff;
+    width: 64vw;
+    justify-content: center;
+    height: 99%;
+    border-radius: 0px;
+    margin-top: 0.5vh;
+    margin-left: 0.5vw;
+    overflow: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+  }

@@ -1,12 +1,18 @@
 import './App.css';
 import Panel from './designer/Panel';
+import Popover from './designer/popover/Popover';
+import { PopoverProvider } from './designer/popover/PopoverContext';
 import Uppernavbar from './Uppernavbar';
-
 function App() {
   return (
     <div className="App">
-      <Uppernavbar />
-      <Panel />
+          <PopoverProvider>
+          <Uppernavbar />
+          <Panel />
+          <Popover></Popover>
+        </PopoverProvider>
+
+      
     </div>
   );
 }

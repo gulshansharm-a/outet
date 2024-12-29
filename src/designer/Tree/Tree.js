@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './Tree.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { setData, reposition,reposition_c } from '../../redux/actions';
-
+import { usePopover } from '../popover/PopoverContext';
 const Tree1 = () => {
+  const { openPopover } = usePopover();
 
   const data = useSelector(state => state.tree);
   const dispatch = useDispatch();
@@ -100,18 +101,26 @@ const Tree1 = () => {
     targetElement.style.borderBottom = "none";
     previousTarget = null; // Reset previous target on leave
   };
+  const handleClick = (event) => {
+    const rect = event.target.getBoundingClientRect();
+    openPopover({
+      x: rect.right + 10, // Adjust to show next to the button
+      y: rect.top + window.scrollY,
+    });
+  };
 
   return (
     <div className="tree-container">
       <ul>
         {data.map((item) => (
+          <div className='topDiv' >
           <div
-            key={item.id}
-            data-key={item.id}
+            key={item.uID}
+            data-key={item.uId}
             className="section"
             draggable={true}
-            onDragStart={(e) => handleDragStart(e, item.id,item)}
-            onDrop={(e) => handleDrop(e, item.id)}
+            onDragStart={(e) => handleDragStart(e, item.uID,item)}
+            onDrop={(e) => handleDrop(e, item.uID)}
             onDragOver={(e) => handleDragOver(e, item)}
             onDragLeave={handleDragLeave}
             data-type={item.type}
@@ -122,13 +131,13 @@ const Tree1 = () => {
             {item.childrenAllowed && item.children && item.children.length > 0 && (
               <ul>
                 {item.children.map((child) => (
-                  <div
-                    key={child.id}
-                    data-key={child.id}
+                  <div 
+                    key={child.uID}
+                    data-key={child.uId}
                     className="child"
                     draggable={true}
-                    onDragStart={(e) => handleDragStart(e, child.id,child)}
-                    onDrop={(e) => handleDrop(e, child.id)}
+                    onDragStart={(e) => handleDragStart(e, child.uID,child)}
+                    onDrop={(e) => handleDrop(e, child.uID)}
                     onDragOver={(e) => handleDragOver(e, child)}
                     onDragLeave={handleDragLeave}
                     data-type={child.type}
@@ -139,9 +148,13 @@ const Tree1 = () => {
               </ul>
             )}
           </div>
+          </div>
+
         ))}
       </ul>
-    </div>
+      <button onClick={handleClick} style={{ margin: "5px" }}>
+      + Section
+    </button>    </div>
   );
   
 };

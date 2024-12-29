@@ -3,25 +3,25 @@ import { createStore } from 'redux';
 
 const initialState = {
   tree: [
-    { 
-      id: 2,
-      type: 'section',
-      name: "Slider Section",
-      designID: 10000,
-      childrenAllowed: true,
-      children: [
-        { id: 2, designID: 10000, type: 'element', parent: 2, name: "Product1", childrenAllowed: false },
-        { id: 3, designID: 10000, type: 'element', parent: 2, name: "Product2", childrenAllowed: false },
-        { id: 4, designID: 10000, type: 'element', parent: 2, name: "Product3", childrenAllowed: false },
-      ]
-    },
-    { id: 3, designID: 10000, type: 'section', name: "Featured Products", childrenAllowed: false },
-    { id: 4, designID: 10000, type: 'section', name: "About Us Section", childrenAllowed: false }
+    // { 
+    //   id: 1221,
+    //   type: 'section',
+    //   name: "Slider Section",
+    //   childrenAllowed: true, 
+    //   uID:123456987,
+    //   children: [
+    //     { id: 2, designID: 10000, icon:'', type: 'element', parent: 1221, name: "Product1", childrenAllowed: false },
+    //     { id: 3, designID: 10000, type: 'element', parent: 1221, name: "Product2", childrenAllowed: false },
+    //     { id: 4, designID: 10000, type: 'element', parent: 1221, name: "Product3", childrenAllowed: false },
+    //   ]
+    // },
+    // { id: 1222, uID:12345688, designID: 10000, type: 'section', name: "Featured Products", childrenAllowed: false },
+    // { id: 1223, uID:321654, designID: 10000, type: 'section', name: "About Us Section", childrenAllowed: false }
   ]
 };
 
 
-function counterReducer(state = initialState, action) {
+function treeReducer(state = initialState, action) {
   switch (action.type) {
     case 'REPOSITION':
       return {
@@ -43,20 +43,24 @@ function counterReducer(state = initialState, action) {
             action.array.parentId
           )
       };
+      case 'ADD_SECTION':
+      return {
+        ...state,
+        tree: add_section_end(state.tree, action.array),
+      };
     default:
       return state;
   }
 }
 
-
-
 function moveSection(arr, id1, id2, mousePosition) {
     console.log('arr:', arr);
-    const index1 = arr.findIndex(item => item.id === id1);
-    let index2 = arr.findIndex(item => item.id === id2);
+    const index1 = arr.findIndex(item => item.uID === id1);
+    let index2 = arr.findIndex(item => item.uID === id2);
     if (mousePosition === 'top') {
       index2--;
     }
+
     if (index2 === -1) {
       const temparray = [arr[index1]];
       arr.forEach((element) => {
@@ -77,14 +81,25 @@ function moveSection(arr, id1, id2, mousePosition) {
     return [...arr]; // Return a new array
   }
 
-  function move_child(arr, id1, id2, mousePosition,parentID) {
+function move_child(arr, id1, id2, mousePosition,parentID) {
     console.log(arr, id1, id2, mousePosition,parentID)
     let index = arr.findIndex(item => item.id === parentID)
+    console.log(arr,index,"childers")
     arr[index].children = moveSection(arr[index].children, id1, id2, mousePosition);
     console.log("is a n issue",arr);
     return [...arr];
+}
+
+function add_section_end(tree, newSection) {
+  // Validate that the input is a valid object
+  if (typeof newSection !== "object" || newSection === null || Array.isArray(newSection)) {
+    console.error("Input should be a valid object.");
+    return tree;
   }
 
-const store = createStore(counterReducer);
+  // Append the new section to the end of the tree
+  return [...tree, { ...newSection }];
+}
+const store = createStore(treeReducer);
 
 export default store;

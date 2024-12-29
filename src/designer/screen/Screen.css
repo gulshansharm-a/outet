@@ -1,0 +1,9 @@
+.screen_section {
+    border: 2px solid transparent;
+    transition: border 0.3s;
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+.screen_section:hover {
+    border: 2px solid rgb(36, 36, 255);
+}

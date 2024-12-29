@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './Panel.css';
 import Tree from './Tree/Tree';
+import Screen from './screen/Screen';
 
 const Panel = () => {
   const [selectedOption, setSelectedOption] = useState('header');
   const handleOptionClick = (option) => {
 
   };
-
-
   return (
     <div className="sidebar-container">
       <div className="sidebar-height">
@@ -36,10 +35,11 @@ const Panel = () => {
           </li>
         </ul>
       </div>
-      <div className="sidebar-content second-columns"> <Tree></Tree> </div>
-      <div style={{background:"#e2e2e2", color:'white',width:'65%', height:'auto'}} > 
-      
-      </div>
+      <div className="sidebar-content second-columns"  > <Tree></Tree> </div>
+      <div className="small-screen-container"   >
+  <Screen />
+</div>
+
       <div className="sidebar-content third-columns"> </div>
     </div>
   );
