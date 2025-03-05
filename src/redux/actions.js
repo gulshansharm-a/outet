@@ -24,5 +24,9 @@ export const add_at_end = (array) => ({
         array
 });
 
+export const change_setting = (uID) => ({
+    type:'CHANGE_SETTING',
+    uID
+})
 
 

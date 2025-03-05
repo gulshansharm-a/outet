@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './Tree.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { setData, reposition,reposition_c } from '../../redux/actions';
+import { setData, reposition,reposition_c,change_setting } from '../../redux/actions';
 import { usePopover } from '../popover/PopoverContext';
 const Tree1 = () => {
   const { openPopover } = usePopover();
 
   const data = useSelector(state => state.tree);
   const dispatch = useDispatch();
+
   let previousTarget = null;
   let mousePosition = null; 
   let dragging_element_type = null;
@@ -108,6 +109,9 @@ const Tree1 = () => {
       y: rect.top + window.scrollY,
     });
   };
+  const change_setting_hander = (uID) =>{
+    dispatch(change_setting(uID));
+  }
 
   return (
     <div className="tree-container">
@@ -126,7 +130,7 @@ const Tree1 = () => {
             data-type={item.type}
           >
             <div draggable={true} className="section-name">
-              &gt; {item.name}
+              <div onClick={() => change_setting_hander(item.uID)}> &gt;  {item.name}</div>
             </div>
             {item.childrenAllowed && item.children && item.children.length > 0 && (
               <ul>
@@ -142,7 +146,7 @@ const Tree1 = () => {
                     onDragLeave={handleDragLeave}
                     data-type={child.type}
                   >
-                    {child.name} 
+                    {child.name}  {child.uID}
                   </div>
                 ))}
               </ul>

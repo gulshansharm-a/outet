@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React from "react";
-
+const navarray = [{}]
 const Navbar = () => {
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
@@ -86,4 +87,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export { Navbar, navarray};

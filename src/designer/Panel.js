@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Panel.css';
 import Tree from './Tree/Tree';
 import Screen from './screen/Screen';
-
+import Setting from './setting/Setting'
 const Panel = () => {
   const [selectedOption, setSelectedOption] = useState('header');
   const handleOptionClick = (option) => {
@@ -37,10 +37,9 @@ const Panel = () => {
       </div>
       <div className="sidebar-content second-columns"  > <Tree></Tree> </div>
       <div className="small-screen-container"   >
-  <Screen />
-</div>
-
-      <div className="sidebar-content third-columns"> </div>
+        <Screen />
+      </div>
+      <div className="sidebar-content third-columns"> <Setting></Setting></div>
     </div>
   );
 };

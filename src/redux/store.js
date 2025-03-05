@@ -17,8 +17,10 @@ const initialState = {
     // },
     // { id: 1222, uID:12345688, designID: 10000, type: 'section', name: "Featured Products", childrenAllowed: false },
     // { id: 1223, uID:321654, designID: 10000, type: 'section', name: "About Us Section", childrenAllowed: false }
-  ]
+  ],
+  selectedSettingUID :0,
 };
+
 
 
 function treeReducer(state = initialState, action) {
@@ -48,6 +50,12 @@ function treeReducer(state = initialState, action) {
         ...state,
         tree: add_section_end(state.tree, action.array),
       };
+
+      case 'CHANGE_SETTING':
+        return {
+          ...state,
+          selectedSettingUID: action.uID,
+        };
     default:
       return state;
   }
@@ -92,6 +100,7 @@ function move_child(arr, id1, id2, mousePosition,parentID) {
 
 function add_section_end(tree, newSection) {
   // Validate that the input is a valid object
+  console.log(initialState.tree);
   if (typeof newSection !== "object" || newSection === null || Array.isArray(newSection)) {
     console.error("Input should be a valid object.");
     return tree;

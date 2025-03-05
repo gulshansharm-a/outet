@@ -15,10 +15,11 @@ const Popover = () => {
     closePopover();
     console.log(elementID);
     const index = sectionArray.findIndex(item => item.id === elementID);
-    // console.log(sectionArray,index)
+
    const inputData = {
     id:elementID,
     name:sectionArray[index].name,
+    settingArray:sectionArray[index].array,
     type: 'section',
     childrenAllowed: false,
     uID:Date.now()
