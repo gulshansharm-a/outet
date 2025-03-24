@@ -1,93 +1,122 @@
 import React, { useState } from 'react';
 import './Tree.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { setData, reposition,reposition_c,change_setting } from '../../redux/actions';
+import { setData, reposition, reposition_c, change_setting, update_setting_parentID } from '../../redux/actions';
 import { usePopover } from '../popover/PopoverContext';
 const Tree1 = () => {
   const { openPopover } = usePopover();
 
-  const data = useSelector(state => state.tree);
+  const data = useSelector(state => state.tree) || [];
   const dispatch = useDispatch();
 
   let previousTarget = null;
-  let mousePosition = null; 
+  let mousePosition = null;
   let dragging_element_type = null;
   let parentID = -1;
-  const handleDragStart = (e, itemId,item) => {
-    e.stopPropagation()
+
+  const handleDragStart = (e, itemId, item) => {
+    e.stopPropagation();
     e.dataTransfer.setData('itemId', itemId);
-    if(item) {
+    if (item) {
       dragging_element_type = item.type;
       parentID = item.parent;
-      console.log('drage type',dragging_element_type,item.type)
+      console.log('drag type', dragging_element_type, item.type);
     }
   };
 
   const handleDrop = (e, parentId) => {
-      e.stopPropagation()
-      if(dragging_element_type == "section") {
-        handle_drop_for_parent(e,parentId);
-      }else {
-        handle_drop_for_child(e,parentId);
-      }
-      dragging_element_type = null;
-      parentID = -1;
+    e.stopPropagation();
+    if (dragging_element_type === "section") {
+      handle_drop_for_parent(e, parentId);
+    } else {
+      handle_drop_for_child(e, parentId);
+    }
+    dragging_element_type = null;
+    parentID = -1;
   };
 
-  const handle_drop_for_parent=(e, parentId) => {
-    console.log("is in p")
+  const handle_drop_for_parent = (e, parentId) => {
+    console.log("is in p");
     const draggedItemId = e.dataTransfer.getData('itemId');
-    console.log(draggedItemId, parentId); 
     e.target.style.borderBottom = "none";
     e.target.style.borderTop = "none";
 
     dispatch(reposition({
-        array: data,           
-        id1: parseInt(draggedItemId),  
-        id2: parentId,         
-        position: mousePosition 
-      }));
-  }
+      array: data,
+      id1: parseInt(draggedItemId),
+      id2: parentId,
+      position: mousePosition
+    }));
+  };
 
-  const handle_drop_for_child=(e, parentId_r) => {
-    console.log("is in c")
+  const handle_drop_for_child = (e, parentId_r) => {
+    console.log("is in c");
     e.target.style.borderBottom = "none";
     e.target.style.borderTop = "none";
     const draggedItemId = e.dataTransfer.getData('itemId');
-    console.log({
-      array: data,           
-      id1: parseInt(draggedItemId),  
-      id2: parentId_r,         
-      position: mousePosition,
-      parentId: parentID
-    }); 
+
     dispatch(reposition_c({
-      array: data,           
-      id1: parseInt(draggedItemId),  
-      id2: parentId_r,         
+      array: data,
+      id1: parseInt(draggedItemId),
+      id2: parentId_r,
       position: mousePosition,
       parentId: parentID
     }));
-  } 
+  };
+
+  const renderTree = (items, level = 0) => (
+    items.map((item) => (
+      <div className='topDiv' key={item.uID} style={{ paddingLeft: `${level * 20}px`, border: "1px solid #ddd", margin: "5px", borderRadius: "8px" }}>
+        <div
+          data-key={item.uId}
+          className="section"
+          draggable={true}
+          onDragStart={(e) => handleDragStart(e, item.uID, item)}
+          onDrop={(e) => handleDrop(e, item.uID)}
+          onDragOver={(e) => handleDragOver(e, item)}
+          onDragLeave={handleDragLeave}
+          data-type={item.type}
+        >
+          <div draggable={true} className="section-name">
+            <div onClick={() => change_setting_hander(item.uID)}>
+              &gt; {item.name}
+              {item.type === 'section' && (
+                <button
+                  onClick={(e) => handleClickOnChild(e, item.uID)}
+                  style={{ margin: "5px" }}
+                >
+                  +
+                </button>
+              )}
+            </div>
+          </div>
+
+          {item.childrenAllowed && item.children && item.children.length > 0 && (
+            <ul>{renderTree(item.children, level + 1)}</ul>
+          )}
+        </div>
+      </div>
+    ))
+  );
 
   const handleDragOver = (e, item) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     let targetElement = e.target;
     const targetRect = targetElement.getBoundingClientRect();
     const mouseY = e.clientY;
     const isTopHalf = mouseY < targetRect.top + targetRect.height / 2;
 
     mousePosition = isTopHalf ? 'top' : 'bottom';
-    if(dragging_element_type === item.type) {
+    if (dragging_element_type === item.type) {
       if (isTopHalf) {
         targetElement.style.borderTop = "2px solid blue";
-        targetElement.style.borderBottom = "none"; // Remove bottom border
+        targetElement.style.borderBottom = "none";
       } else {
         targetElement.style.borderBottom = "2px solid blue";
-        targetElement.style.borderTop = "none"; // Remove top border
-      }  
+        targetElement.style.borderTop = "none";
+      }
     }
     if (previousTarget && previousTarget !== targetElement) {
       previousTarget.style.borderTop = "none";
@@ -100,67 +129,40 @@ const Tree1 = () => {
     const targetElement = e.target;
     targetElement.style.borderTop = "none";
     targetElement.style.borderBottom = "none";
-    previousTarget = null; // Reset previous target on leave
+    previousTarget = null;
   };
+
   const handleClick = (event) => {
     const rect = event.target.getBoundingClientRect();
+    dispatch(update_setting_parentID(0));
+
     openPopover({
-      x: rect.right + 10, // Adjust to show next to the button
+      x: rect.right + 10,
       y: rect.top + window.scrollY,
     });
   };
-  const change_setting_hander = (uID) =>{
+
+  const handleClickOnChild = (event, number) => {
+    const rect = event.target.getBoundingClientRect();
+    dispatch(update_setting_parentID(number));
+    openPopover({
+      x: rect.right + 10,
+      y: rect.top + window.scrollY,
+    });
+  };
+
+  const change_setting_hander = (uID) => {
     dispatch(change_setting(uID));
-  }
+  };
 
   return (
     <div className="tree-container">
       <ul>
-        {data.map((item) => (
-          <div className='topDiv' >
-          <div
-            key={item.uID}
-            data-key={item.uId}
-            className="section"
-            draggable={true}
-            onDragStart={(e) => handleDragStart(e, item.uID,item)}
-            onDrop={(e) => handleDrop(e, item.uID)}
-            onDragOver={(e) => handleDragOver(e, item)}
-            onDragLeave={handleDragLeave}
-            data-type={item.type}
-          >
-            <div draggable={true} className="section-name">
-              <div onClick={() => change_setting_hander(item.uID)}> &gt;  {item.name}</div>
-            </div>
-            {item.childrenAllowed && item.children && item.children.length > 0 && (
-              <ul>
-                {item.children.map((child) => (
-                  <div 
-                    key={child.uID}
-                    data-key={child.uId}
-                    className="child"
-                    draggable={true}
-                    onDragStart={(e) => handleDragStart(e, child.uID,child)}
-                    onDrop={(e) => handleDrop(e, child.uID)}
-                    onDragOver={(e) => handleDragOver(e, child)}
-                    onDragLeave={handleDragLeave}
-                    data-type={child.type}
-                  >
-                    {child.name}  {child.uID}
-                  </div>
-                ))}
-              </ul>
-            )}
-          </div>
-          </div>
-
-        ))}
+        {renderTree(data)}
       </ul>
-      <button onClick={handleClick} style={{ margin: "5px" }}>
-      + Section
-    </button>    </div>
+      <button onClick={handleClick} style={{ margin: "5px" }}>+ Section</button>
+    </div>
   );
-  
 };
 
 export default Tree1;

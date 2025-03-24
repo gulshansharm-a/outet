@@ -1,0 +1,98 @@
+[
+    {
+      "id": 1,
+      "name": "Nike Go FlyEase Women's Easy On/Off Shoes Size 7.5",
+      "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "score": 4.3,
+        "count": 177
+      },
+      "price": {
+        "current": 11895.00,
+        "original": null
+      },
+      "seller": "Nike Official",
+      "deliveryCharge": 750.00,
+      "onSale": false
+    },
+    {
+      "id": 2,
+      "name": "Nike Air Force 1 '07 Men's Shoes Size 12 (White)",
+      "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "score": 4.7,
+        "count": 22087
+      },
+      "price": {
+        "current": 7495.00,
+        "original": null
+      },
+      "seller": "Nike Official",
+      "deliveryCharge": 750.00,
+      "onSale": false
+    },
+    {
+      "id": 3,
+      "name": "Nike Revolution 7 Men's Road Running Shoes Size 13",
+      "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "score": 4.6,
+        "count": 3237
+      },
+      "price": {
+        "current": 2993.00,
+        "original": 3895.00
+      },
+      "seller": "Amazon.in",
+      "deliveryCharge": 0,
+      "onSale": true
+    },
+    {
+      "id": 4,
+      "name": "Nike Court Vision Low Men's Shoes Size 7.5 (White)",
+      "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": {
+        "score": 4.5,
+        "count": 464
+      },
+      "price": {
+        "current": 5695.00,
+        "original": null
+      },
+      "seller": "Amazon.in",
+      "deliveryCharge": 0,
+      "onSale": true
+    },
+  {
+    "id": 5,
+    "name": "Nike Air Max 90 Men's Shoes Size 10 (Black)",
+    "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "rating": {
+      "score": 4.8,
+      "count": 1845
+    },
+    "price": {
+      "current": 9995.00,
+      "original": 12500.00
+    },
+    "seller": "Nike Official",
+    "deliveryCharge": 750.00,
+    "onSale": true
+  },
+  {
+    "id": 6,
+    "name": "Nike Zoom Pegasus 39 Women's Running Shoes Size 8",
+    "imageUrl": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "rating": {
+      "score": 4.4,
+      "count": 2156
+    },
+    "price": {
+      "current": 8495.00,
+      "original": null
+    },
+    "seller": "Nike Official",
+    "deliveryCharge": 750.00,
+    "onSale": false
+  }
+]

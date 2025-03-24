@@ -1,0 +1,103 @@
+[
+    {
+      "id": 1,
+      "brand": "Nike",
+      "name": "Mercurial Superfly IX Club",
+      "type": "Turf Traction Football Shoes",
+      "colors": 1,
+      "price": 5995.00,
+      "availability": "",
+      "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 2,
+      "brand": "Nike",
+      "name": "Mercurial Vapor IX Club",
+      "type": "Turf Traction Football Shoes",
+      "colors": 1,
+      "price": 4995.00,
+      "availability": "",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 3,
+      "brand": "Nike",
+      "name": "Mercurial Vapor IX Club",
+      "type": "Turf Traction Football Shoes",
+      "colors": 1,
+      "price": 4995.00,
+      "availability": "",
+      "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 4,
+      "brand": "Nike",
+      "name": "Air Max Motif SP",
+      "type": "Shoes",
+      "colors": 1, 
+      "price": 12795.00,
+      "availability": "SNKRS",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 5,
+      "brand": "Nike",
+      "name": "Pegasus Trail 5 GORE-TEX",
+      "type": "Waterproof Trail Running Shoes",
+      "colors": 1,
+      "price": 15995.00,
+      "availability": "SNKRS",
+      "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 6,
+      "brand": "Nike",
+      "name": "Pegasus Trail 5 GORE-TEX",
+      "type": "Waterproof Trail Running Shoes",
+      "colors": 1,
+      "price": 15995.00,
+      "availability": "SNKRS",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 7,
+      "brand": "Nike",
+      "name": "Dunk Low Retro",
+      "type": "Shoes",
+      "colors": 1,
+      "price": 9295.00,
+      "availability": "Bestseller",
+      "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 8,
+      "brand": "Jordan",
+      "name": "Zero.3 SP",
+      "type": "Shoes",
+      "colors": 1,
+      "price": 12795.00,
+      "availability": "",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 9,
+      "brand": "Nike",
+      "name": "Air Force 1 '07 Fresh",
+      "type": "Shoes",
+      "colors": 1,
+      "price": 11295.00,
+      "availability": "Bestseller",
+      "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        "id": 10,
+        "brand": "Nike",
+        "name": "Air Force 1 '07 Fresh",
+        "type": "Shoes",
+        "colors": 1,
+        "price": 11295.00,
+        "availability": "Bestseller",
+        "image": "https://images.unsplash.com/photo-1715773150368-55945728385a?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      }
+  ]

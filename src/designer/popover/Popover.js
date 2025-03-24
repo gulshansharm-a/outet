@@ -19,8 +19,8 @@ const Popover = () => {
    const inputData = {
     id:elementID,
     name:sectionArray[index].name,
-    settingArray:sectionArray[index].array,
-    type: 'section',
+    settings:sectionArray[index].array,
+    type: sectionArray[index].type,
     childrenAllowed: false,
     uID:Date.now()
    }

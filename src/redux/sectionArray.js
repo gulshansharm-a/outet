@@ -1,18 +1,19 @@
-import {Navbar,navarray} from "../template/Navbar";
-import Cardrow from "../template/Cardrow";
-import Carousel from "../template/Carousel";
-import Tabbedcard from "../template/Tabbedcard";
-import Accordion from "../template/Accordion";
+import { NavBar,navBarArray } from "../template/NavBar";
+import { Slider, sliderArray } from "../template/Slider";
+import {JewelryComponent, JewelryComponentArray } from "../template/JewelryComponent";
+import HeroSectionWithProduct from "../template/herosection/herosection_with_product/HeroSectionWithProduct";
+import {HeroSection,HeroSectionArray} from "../template/herosection/herosection/HeroSection";
+import JewelryShowcase from "../template/herosection/herosection/Showcase";
+import {Section,SectionDArray} from "../elements/section";
+import { Button,ButtonArray } from "../template/Button/Button";
 
+    const SectionArray = [
+       //elements
+       { id: 1228,type:'element', name: "Hero Slider", section: <HeroSection />,array:HeroSectionArray  },  
+       { id: 1227,type:'element', name: "Custom Button", section: <Button />,array:ButtonArray },  
+      
+       //section
+       { id: 1226,type:'section', name: "Sections", section: <Section/>,array:SectionDArray },
+    ];
 
-const sectionArray = [
-    
-    { id: 1221, name:"Nav Bar", section: <Navbar  /> ,array:navarray},
-    { id: 1222, name:"Slides", section: <Carousel /> },
-    { id: 1223, name:"2 Cards", section: <Cardrow /> },
-    { id: 1224, name:"Tabbed card", section: <Tabbedcard /> },
-    { id: 1225, name:"Collaps", section: <Accordion /> }
-];
-
-
-export default sectionArray;
+export default SectionArray;

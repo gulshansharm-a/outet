@@ -11,8 +11,7 @@ function App() {
           <Panel />
           <Popover></Popover>
         </PopoverProvider>
-
-      
+        
     </div>
   );
 }

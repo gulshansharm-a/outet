@@ -7,7 +7,6 @@ export const reposition = (array,id1,id2,position) => ({
         id1,
         id2,
         position
-      
 });
 
 export const reposition_c = (array,id1,id2,position) => ({ 
@@ -21,7 +20,7 @@ export const reposition_c = (array,id1,id2,position) => ({
 
 export const add_at_end = (array) => ({ 
     type: 'ADD_SECTION', 
-        array
+    array
 });
 
 export const change_setting = (uID) => ({
@@ -29,4 +28,15 @@ export const change_setting = (uID) => ({
     uID
 })
 
+export const update_setting = (uId,id_setting,value) =>({
+    type:'UPDATE_SETTING',
+    uId,
+    id_setting,
+    value
+})
+
+export const update_setting_parentID = (uID) =>({
+    type:'CHANGE_SELECTEDSECTION',
+    uID
+})
 

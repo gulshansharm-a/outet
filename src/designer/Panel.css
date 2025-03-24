@@ -30,7 +30,64 @@ General Reset
     margin-top: 20px;
     text-align: center;
   }
+  .preview-button {
+    position: absolute;
+    top: 19px;
+    right: 100px;
+    z-index: 100;
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
   
+  .preview-button:hover {
+    background-color: #3a80d2;
+  }
+  
+  .preview-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .preview-screen-wrapper {
+    width: 100%;
+    height: calc(100% - 40px); /* Adjust based on your exit button height */
+    overflow-y: auto; /* This enables scrolling */
+  }
+  
+  .exit-preview-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    /* Add your button styling here */
+  }
+  .exit-preview-button {
+    position: absolute;
+  
+    z-index: 1001;
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .exit-preview-button:hover {
+    background-color: #c0392b;
+  }
   .sidebar-items li {
     margin-bottom: 20px;
     cursor: pointer;
@@ -156,4 +213,28 @@ General Reset
     overflow: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
+  }
+  .preview-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .preview-screen-wrapper {
+    width: 100%;
+    height: calc(100% - 40px); /* Adjust based on your exit button height */
+    overflow-y: auto; /* This enables scrolling */
+  }
+  
+  .exit-preview-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    /* Add your button styling here */
   }
