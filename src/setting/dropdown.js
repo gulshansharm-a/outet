@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { update_setting } from "../redux/actions";
 
 import './Dropdown.css';
-import { select } from 'framer-motion/client';
 
 const PositionDropdown = ({ sectionID, settingId, name, defaultValue }) => {
   const [selectedPosition, setSelectedPosition] = useState(defaultValue); // Default to 'center'

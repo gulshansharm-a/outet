@@ -2,91 +2,180 @@
 import { createStore } from 'redux';
 import { change_setting } from './actions';
 const initialState = {
-  tree: [
-    // {
-    //   id: 1226,
-    //   type: 'section',
-    //   name: "Slider Section",
-    //   childrenAllowed: true,
-    //   uID: 123456987,
-    //   designID: 1,
-    //   settings: [
-    //     { id: 1, name: 'Direction', settingId: 121, value: "row" }
-    //   ],
-    //   children: [
-    //     {
-    //       id: 1226,
-    //       designID: 10000,
-    //       type: 'section',
-    //       uID: 123456985,
-    //       parent: 1221,
-    //       name: "Productkk",
-    //       childrenAllowed: true,
-    //       children: [
-    //         {
-    //           id: 1224,
-    //           designID: 10000,
-    //           type: 'section',
-    //           parent: 1221,
-    //           uID: 1234569845,
-    //           name: "Product1",
-    //           childrenAllowed: false,
-    //         },
-    //         {
-    //           id: 1228,
-    //           designID: 10000,
-    //           type: 'section',
-    //           parent: 1221,
-    //           uID: 1234569567,
-    //           name: "Product1",
-    //           childrenAllowed: false,
-    //         },
-    //       ]
-    //     }
-    //     ,
-    //     {
-    //       id: 1224,
-    //       designID: 10000,
-    //       type: 'section',
-    //       parent: 1221,
-    //       uID: 1234569855,
-    //       name: "Product33",
-    //       childrenAllowed: false,
-    //     },
-    //   ]
-    // },
+    tree: [
+      {
+        id: 1226,
+        designID: 1226,
+        name: "Sections",
+        settings: [
+          {
+            id: 1742835742946,
+            name: "Direction",
+            settingId: 121,
+            value: "column"
+          }
+        ],
+        type: "section",
+        childrenAllowed: true,
+        uID: 1742835742536,
+        children: [
+            {
+            id: 1226,
+            designID: 1226,
+            name: "Sections",
+            settings: [
+              {
+                id: 1742835744864,
+                name: "Direction",
+                settingId: 121,
+                value: "column"
+              }
+            ],
+            type: "section",
+            childrenAllowed: true,
+            uID: 1742835744371,
+            children: [
+              {
+                id: 1228,
+                designID: 1228,
+                name: "Hero Slider",
+                settings: [
+                  {
+                    id: 1742835748386,
+                    name: "Title",
+                    settingId: 121,
+                    value: "Every piece of Jewelry tells a story"
+                  },
+                  {
+                    id: 1742835748772,
+                    name: "Alignment",
+                    settingId: 122,
+                    value: "center"
+                  },
+                  {
+                    id: 1742835748792,
+                    name: "Font Gap Title",
+                    settingId: 123,
+                    value: "large"
+                  }
+                ],
+                type: "element",
+                childrenAllowed: false,
+                uID: 1742835747905
+              },
+              {
+                id: 1228,
+                designID: 1228,
+                name: "Hero Slider",
+                settings: [
+                  {
+                    id: 1742835751828,
+                    name: "Title",
+                    settingId: 121,
+                    value: "Every piece of Jewelry tells a story"
+                  },
+                  {
+                    id: 1742835752323,
+                    name: "Alignment",
+                    settingId: 122,
+                    value: "center"
+                  },
+                  {
+                    id: 1742835751958,
+                    name: "Font Gap Title",
+                    settingId: 123,
+                    value: "large"
+                  }
+                ],
+                type: "element",
+                childrenAllowed: false,
+                uID: 1742835751811
+              }
+            ]
+          },
+          {
+            id: 1226,
+            designID: 1226,
+            name: "Sections",
+            settings: [
+              {
+                id: 1742835747081,
+                name: "Direction",
+                settingId: 121,
+                value: "row"
+              }
+            ],
+            type: "section",
+            childrenAllowed: true,
+            uID: 1742835746207,
+            children: [
+              {
+                id: 1228,
+                designID: 1228,
+                name: "Hero Slider",
+                settings: [
+                  {
+                    id: 1742835749653,
+                    name: "Title",
+                    settingId: 121,
+                    value: "Every piece of Jewelry tells a story"
+                  },
+                  {
+                    id: 1742835750057,
+                    name: "Alignment",
+                    settingId: 122,
+                    value: "center"
+                  },
+                  {
+                    id: 1742835750387,
+                    name: "Font Gap Title",
+                    settingId: 123,
+                    value: "large"
+                  }
+                ],
+                type: "element",
+                childrenAllowed: false,
+                uID: 1742835749568
+              },
+              {
+                id: 1228,
+                designID: 1228,
+                name: "Hero Slider",
+                settings: [
+                  {
+                    id: 1742835754886,
+                    name: "Title",
+                    settingId: 121,
+                    value: "Every piece of Jewelry tells a story"
+                  },
+                  {
+                    id: 1742835753972,
+                    name: "Alignment",
+                    settingId: 122,
+                    value: "center"
+                  },
+                  {
+                    id: 1742835754867,
+                    name: "Font Gap Title",
+                    settingId: 123,
+                    value: "large"
+                  }
+                ],
+                type: "element",
+                childrenAllowed: false,
+                uID: 1742835753930
+              }
+            ]
+          }
+        ]
+      }
+    ],
 
-    // {
-    //   id: 1226,
-    //   uID: 12345688,
-    //   designID: 10000,
-    //   type: 'section',
-    //   name: "Featured Products",
-    //   childrenAllowed: true,
-    //   childre: [
-    //     {
-    //       id: 1221,
-    //       designID: 10000,
-    //       type: 'section',
-    //       parent: 1226,
-    //       name: "innerchild",
-    //       childrenAllowed: false
-
-    //     },
-    //   ]
-    //   ,
-    //   settings: [
-    //     { id: 1, name: 'Enter1', settingId: 121, value: 'default' },
-    //     { id: 2, name: 'Enter2', settingId: 121, value: 'default' }
-    //   ]
-    // },
-
-  ],
 
   selectedSettingUID: 0,
   columngreid: 3,
   id: 1,
-  parentID : 0
+  parentID: 0
 };
 
 function treeReducer(state = initialState, action) {
@@ -94,7 +183,7 @@ function treeReducer(state = initialState, action) {
     case 'CHANGE_SELECTEDSECTION':
       return {
         ...state,
-        parentID:setParentID(action.uID)
+        parentID: setParentID(action.uID)
       };
     case 'REPOSITION':
       return {
@@ -119,80 +208,73 @@ function treeReducer(state = initialState, action) {
     case 'ADD_SECTION':
       return {
         ...state,
-        tree: add_section_end(state.tree, action.array,state.parentID),
+        tree: add_section_end(state.tree, action.array, state.parentID),
       };
 
     case 'CHANGE_SETTING':
       return {
         ...state,
         selectedSettingUID: action.uID,
-
       };
     case 'UPDATE_SETTING':
+      const value = updateSettingValue(state.tree, action.uId, action.id_setting, action.value);
+      console.log("tree", console.log(JSON.stringify(state.tree, null, 2)))
+      initialState.tree = value
       return {
         ...state,
-        tree: updateSettingValue(state.tree, action.uId, action.id_setting, action.value)
+        tree: initialState.tree
       };
     default:
       return state;
   }
 }
-function setParentID(uID){
+function setParentID(uID) {
   return uID;
 }
 function addSectionToTree(tree, newSection, targetUID) {
   function findAndAddSection(node) {
-      if (node.uID === targetUID) {
-          const updatedNode = {
-              ...node,
-              children: [...(node.children || []), newSection],
-              childrenAllowed: true
-          };
-          return updatedNode;
-      }
+    if (node.uID === targetUID) {
+      const updatedNode = {
+        ...node,
+        children: [...(node.children || []), newSection],
+        childrenAllowed: true
+      };
+      return updatedNode;
+    }
 
-      if (node.children) {
-          return {
-              ...node,
-              children: node.children.map(findAndAddSection)
-          };
-      }
+    if (node.children) {
+      return {
+        ...node,
+        children: node.children.map(findAndAddSection)
+      };
+    }
 
-      return node; // If no changes are needed
+    return node; // If no changes are needed
   }
 
   return tree.map(findAndAddSection);
 }
 
 function updateSettingValue(data, elementId, id_setting, value) {
-  function recursiveUpdate(items) {
-    for (const item of items) {
-      if (item.uID === elementId) {
-        const setting = item.settings?.find(setting => setting.id === id_setting);
-        console.log(setting)
-        if (setting) {
+  for (const element of data) {
+    // Check current element for matching uID
+    if (element.uID === elementId) {
+      for (const setting of element.settings) {
+        if (setting.id === id_setting) {
           setting.value = value;
-          console.log('Updated Data:', data);
-          return true;  
+          console.log(setting, element, "is of the element");
         }
       }
-      // Recursively search children if present
-      if (item.children) {
-        const updated = recursiveUpdate(item.children);
-        if (updated) return true;  // Stop recursion once found
-      }
     }
-    return false;  // Element or setting not found
+
+    // Check children recursively if they exist
+    if (element.children && element.children.length) {
+      updateSettingValue(element.children, elementId, id_setting, value);
+    }
   }
-
-  const updated = recursiveUpdate(data);
-
-  if (!updated) {
-    console.log('Element ID or Setting ID not found.');
-  }
-
   return data;
 }
+
 
 function moveSection(arr, id1, id2, mousePosition) {
   console.log('arr:', arr);
@@ -231,20 +313,20 @@ function move_child(arr, id1, id2, mousePosition, parentID) {
   return [...arr];
 }
 
-function add_section_end(tree, newSection,parentID) {
+function add_section_end(tree, newSection, parentID) {
   // Validate that the input is a valid object
-  if(parseInt(parentID)==0){
+  if (parseInt(parentID) == 0) {
 
- 
-  console.log(initialState.tree);
-  if (typeof newSection !== "object" || newSection === null || Array.isArray(newSection)) {
-    console.error("Input should be a valid object.");
-    return tree;
+
+    console.log(initialState.tree);
+    if (typeof newSection !== "object" || newSection === null || Array.isArray(newSection)) {
+      console.error("Input should be a valid object.");
+      return tree;
+    }
+    // Append the new section to the end of the tree
+    return [...tree, { ...newSection }];
   }
-  // Append the new section to the end of the tree
-  return [...tree, { ...newSection }];
-}
-return addSectionToTree(tree, newSection , parentID);
+  return addSectionToTree(tree, newSection, parentID);
 }
 
 const store = createStore(treeReducer);

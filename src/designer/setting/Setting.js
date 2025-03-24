@@ -13,6 +13,7 @@ const Setting = () => {
   function findElementInTree(tree, targetUID) {
     for (const node of tree) {
       if (node.uID === targetUID) {
+        console.log("element found",node)
         return node; // Found the element
       }
 

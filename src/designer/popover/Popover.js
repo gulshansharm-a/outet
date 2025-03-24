@@ -15,15 +15,19 @@ const Popover = () => {
     closePopover();
     console.log(elementID);
     const index = sectionArray.findIndex(item => item.id === elementID);
-
-   const inputData = {
-    id:elementID,
-    name:sectionArray[index].name,
-    settings:sectionArray[index].array,
-    type: sectionArray[index].type,
-    childrenAllowed: false,
-    uID:Date.now()
-   }
+    const inputData = {
+      id: elementID,
+      designID: elementID,
+      name: sectionArray[index].name,
+      settings: sectionArray[index].array.map(item => ({
+          ...item,
+          id: Date.now() + Math.floor(Math.random() * 1000) // Unique ID for each setting
+      })),
+      type: sectionArray[index].type,
+      childrenAllowed: false,
+      uID: Date.now()
+  }
+  
    console.log(inputData);
     dispatch(add_at_end(inputData));
   };

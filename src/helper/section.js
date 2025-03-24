@@ -7,13 +7,31 @@ class Section {
     }
 
     getDefaultValue(settingId) {
-        const section = this.data.find(item => item.uID === this.sectionId);
+        const section = this.findNodeByUID(this.data,this.sectionId);
         if (!section || !section.settings) return null;
         console.log("ksdj")
-        const setting = section.settings.find(set => set.id === settingId);
+        const setting = section.settings[settingId];
         return setting ? setting.value : null;
     }
+
+    findNodeByUID(tree, targetUID) {
+        for (const node of tree) {
+            if (node.uID === targetUID) {
+                return node;
+            }
+            if (node.children && node.children.length > 0) {
+                const foundNode = this.findNodeByUID(node.children, targetUID);
+                if (foundNode) {
+                    return foundNode;
+                }
+            }
+        }
+        return null; // Return null if no match is found
+    }
 }
+
+
+
 
 export const useGetSettingByID = (sectionId, settingId) => {
     const [defaultValue, setDefaultValue] = useState(null);

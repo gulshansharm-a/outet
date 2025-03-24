@@ -3,11 +3,11 @@ import { useGetSettingByID } from '../helper/section';
 import sectionArray from "../redux/sectionArray"; // Assuming this contains your section data
 
 const SectionDArray = [
-    { id: 1, name: 'Direction', settingId: 121, value: "row" },
+    { id: 0, name: 'Direction', settingId: 121, value: "row" },
 ];
 
 const Section = ({ sectionId, data }) => {
-    const flexDirection = useGetSettingByID(sectionId, 1);
+    const flexDirection = useGetSettingByID(sectionId, 0);
 
     return (
         <div style={{
