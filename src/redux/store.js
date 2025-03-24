@@ -164,33 +164,23 @@ function addSectionToTree(tree, newSection, targetUID) {
   return tree.map(findAndAddSection);
 }
 
+
 function updateSettingValue(data, elementId, id_setting, value) {
-  function recursiveUpdate(items) {
-    for (const item of items) {
-      if (item.uID === elementId) {
-        const setting = item.settings?.find(setting => setting.id === id_setting);
-        console.log(setting)
-        if (setting) {
-          setting.value = value;
-          console.log('Updated Data:', data);
-          return true;  
-        }
-      }
-      // Recursively search children if present
-      if (item.children) {
-        const updated = recursiveUpdate(item.children);
-        if (updated) return true;  // Stop recursion once found
-      }
+  const element = data.find(item => item.uID === elementId);
+  
+  if (element) {
+    const setting = element.settings.find(setting => setting.id === id_setting);
+    
+    console.log(setting,"setting")
+    if (setting) {
+      setting.value = value;
+      console.log('Updated Data:', data);
+    } else {
+      console.log('Setting ID not found.');
     }
-    return false;  // Element or setting not found
+  } else {
+    console.log('Element ID not found.');
   }
-
-  const updated = recursiveUpdate(data);
-
-  if (!updated) {
-    console.log('Element ID or Setting ID not found.');
-  }
-
   return data;
 }
 

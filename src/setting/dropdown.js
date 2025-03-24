@@ -1,37 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { update_setting } from "../redux/actions";
-
 import './Dropdown.css';
-import { select } from 'framer-motion/client';
 
-const PositionDropdown = ({ sectionID, settingId, name, defaultValue }) => {
-  const [selectedPosition, setSelectedPosition] = useState(defaultValue); // Default to 'center'
+const PositionDropdown = ({ sectionID, settingId, name, defaultValue, options = [] }) => {
+  const [selectedPosition, setSelectedPosition] = useState(defaultValue || (options.length > 0 ? options[0] : ""));
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setSelectedPosition(defaultValue || (options.length > 0 ? options[0] : ""));
+  }, [defaultValue, options]);
 
   const handleChange = (e) => {
     const newValue = e.target.value;
-    setSelectedPosition(newValue); // Update state
-    dispatch(update_setting(sectionID, settingId, newValue)); // Dispatch Redux action
+    setSelectedPosition(newValue);
+    dispatch(update_setting(sectionID, settingId, newValue));
   };
 
   return (
-    <>
-      <h2 className="title-drop">{name}</h2>
+    <div className="dropdown-container">
+      <h1>{name}</h1>
       <select className="containerdropdown" value={selectedPosition} onChange={handleChange}>
-        <option value="topleft">Top Left</option>
-        <option value="topcenter">Top Center</option>
-        <option value="topright">Top Right</option>
-        <option value="centerleft">Center Left</option>
-        <option value="center">Center</option>
-        <option value="centerright">Center Right</option>
-        <option value="bottomleft">Bottom Left</option>
-        <option value="bottomcenter">Bottom Center</option>
-        <option value="bottomright">Bottom Right</option>
+        {(options ?? []).map((data, index) => (
+          <option key={data} value={data}>{data}</option>
+        ))}
       </select>
-      
-    </>
+    </div>
   );
 };
 
 export default PositionDropdown;
+
