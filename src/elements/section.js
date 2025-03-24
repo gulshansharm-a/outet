@@ -12,15 +12,8 @@ const Section = ({ sectionId, data }) => {
     return (
         <div style={{
             display: 'flex',
-            gap: '10px',
             flexDirection: flexDirection,
-            alignItems: 'center',
-            justifyContent: 'space-around',
-            border: '1px solid #ccc',
-            padding: '10px',
-            background: '#f0f0f0'
         }}>
-
             {/* Render Children if Allowed */}
             {data.childrenAllowed && data.children?.map((child) => {
                 const matchingElement = sectionArray.find(el => el.id === child.id);
@@ -35,11 +28,7 @@ const Section = ({ sectionId, data }) => {
                 ) : (
                     <div 
                         key={child.id}
-                        style={{
-                            border: '1px solid #2196F3',
-                            padding: '10px',
-                            background: '#E3F2FD'
-                        }}
+                        
                     >
                         {matchingElement}
                         {child.name}
