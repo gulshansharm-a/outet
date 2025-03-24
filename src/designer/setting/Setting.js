@@ -48,6 +48,7 @@ const Setting = () => {
                   settingId: setting.id,
                   name: setting.name,
                   defaultValue: setting.value,
+                  options: setting.options||null
                 })
               ) : (
                 <p>Setting not found</p>

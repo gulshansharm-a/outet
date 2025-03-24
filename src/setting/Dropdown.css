@@ -62,3 +62,43 @@
 .containerdropdown {
     animation: fadeIn 0.4s ease-in-out;
 }
+/* Add this to your Dropdown.css file */
+
+.color-picker-container {
+    margin-bottom: 12px;
+  }
+  
+  .color-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .color-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  .color-input::-webkit-color-swatch {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .color-text-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: monospace;
+  }
